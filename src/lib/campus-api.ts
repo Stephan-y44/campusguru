@@ -13,12 +13,12 @@ export type AnnouncementSubmission = {
 const apiRoot = import.meta.env.VITE_CAMPUS_API_URL;
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  if (!apiRoot) throw new Error("CampusMind API is not connected.");
+  if (!apiRoot) throw new Error(" API is not connected.");
   const response = await fetch(new URL(path, apiRoot), {
     ...init,
     headers: { "Content-Type": "application/json", ...init?.headers },
   });
-  if (!response.ok) throw new Error(`CampusMind API request failed (${response.status}).`);
+  if (!response.ok) throw new Error(` API request failed (${response.status}).`);
   return response.json() as Promise<T>;
 }
 
